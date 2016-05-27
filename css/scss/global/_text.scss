@@ -1,33 +1,3 @@
 /*------------------------------------*\
     $TEXT STYLES
 \*------------------------------------*/
-
-.nav-links {
-  font-family: Trade_Gothic_20;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-}
-
-.nav-links a {
-  color: $white;
-  @include transition(background, $normal-speed)
-}
-
-.address-line p {
-	margin-bottom: 0;
-  color: $primary-light;
-	font-family: Trade_Gothic_18;
-  font-size: 14px;
-	font-style: italic;
-  letter-spacing: 0.6px;
-}
-
-.intro {
-  font-family: Trade_Gothic;
-  font-size: 28px;
-  line-height: 1.2;
-  color: $primary-color;
-}

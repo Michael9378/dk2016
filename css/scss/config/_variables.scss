@@ -5,9 +5,9 @@
 // Colors
 $white 			: #fff;
 $black 			: #000;
-$dim 				: rgba(0,0,0,0.75);
+$dim 			: rgba(0,0,0,0.75);
 $dim-half		: rgba(0,0,0,0.5);
-$lit 				: rgba(255,255,255,0.5);
+$lit 			: rgba(255,255,255,0.5);
 $clear			: rgba(0,0,0,0);
 $success		: #85bb65;
 $warning		: #eaab00;
@@ -25,14 +25,14 @@ $header-back-color	: $primary-color;
 // Typography
 $font-size		: 18px;
 $font-aspect	: 1.24;
-$line-height	:	$font-size*$font-aspect;
+$line-height	: $font-size*$font-aspect;
 $font-color		: $primary-color;
 
 // Spacing
-$margin 			: $line-height/2;
-$pad 					: $line-height/2;
+$margin 		: $line-height/2;
+$pad 			: $line-height/2;
 $border-width	: 2px;
-$gutter				: 15px;
+$gutter			: 15px;
 $gutter-thin	: 5px;
 
 // Boostrap break points
@@ -42,6 +42,6 @@ $screen-md-min	: 992px;
 $screen-lg-min	: 1200px;
 
 // transition speeds
-$fast 	: 0.25s;
+$fast 			: 0.25s;
 $normal-speed	: 0.4s;
-$slow		: 0.7s;
+$slow			: 0.7s;

@@ -34,6 +34,9 @@
 /************* scss/global/reset *************/
 // resets all base styles
 @import "scss/global/reset";
+/************* scss/global/sidebar *************/
+// all styles for sidebars
+@import "scss/global/sidebar";
 /************** scss/global/text **************/
 // contains text resets for all text elements
 @import "scss/global/text";
@@ -41,6 +44,3 @@
 /*************************************************/
 /****************** Junk-Drawer ******************/
 /*************************************************/
-/************** scss/junk-drawer/home **************/
-// styling specific to the homepage
-@import "scss/junk-drawer/home";

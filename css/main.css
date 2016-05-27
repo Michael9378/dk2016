@@ -1,96 +1,9 @@
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
-/* CSS Transition
-	Usage: @include transition(width,0.3s,ease-out);
- */
 /*------------------------------------*\
     $FONTS
 \*------------------------------------*/
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd.otf);
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: normal; }
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Obl.otf);
-  font-stretch: normal;
-  font-style: italic;
-  font-weight: normal; }
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Extended.otf);
-  font-stretch: expanded;
-  font-style: normal;
-  font-weight: normal; }
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Light.otf);
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: lighter; }
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-LightObl.otf);
-  font-stretch: normal;
-  font-style: italic;
-  font-weight: lighter; }
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Bold.otf);
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: bold; }
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-BoldObl.otf);
-  font-stretch: normal;
-  font-style: italic;
-  font-weight: bold; }
-@font-face {
-  font-family: Trade_Gothic;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-BoldExt.otf);
-  font-stretch: expanded;
-  font-style: normal;
-  font-weight: bold; }
-@font-face {
-  font-family: Trade_Gothic_20;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Bd20.otf);
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: bold; }
-@font-face {
-  font-family: Trade_Gothic_20;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Bd20Obl.otf);
-  font-stretch: normal;
-  font-style: italic;
-  font-weight: bold; }
-@font-face {
-  font-family: Trade_Gothic_20;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-BdCn20.otf);
-  font-stretch: condensed;
-  font-style: normal;
-  font-weight: bold; }
-@font-face {
-  font-family: Trade_Gothic_20;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-BdCn20Obl.otf);
-  font-stretch: condensed;
-  font-style: italic;
-  font-weight: bold; }
-@font-face {
-  font-family: Trade_Gothic_18;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Cn18.otf);
-  font-stretch: condensed;
-  font-style: normal;
-  font-weight: normal; }
-@font-face {
-  font-family: Trade_Gothic_18;
-  src: url(../fonts/Trade_Gothic/TradeGothicLTStd-Cn18Obl.otf);
-  font-stretch: condensed;
-  font-style: italic;
-  font-weight: normal; }
 /*------------------------------------*\
     $VARIABLES
 \*------------------------------------*/
@@ -105,209 +18,10 @@
 /*------------------------------------*\
     $BUTTONS AND ICONS
 \*------------------------------------*/
-.btn {
-  margin: 11.16px;
-  padding: 11.16px 22.32px;
-  border: 4px solid #EAAB00;
-  border-radius: 0;
-  color: #4C4C4C;
-  background-color: transparent;
-  font-family: Trade_Gothic_20;
-  font-size: 22px;
-  font-weight: bold;
-  font-stretch: condensed;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  /* transition mixin */
-  -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
-  -ms-transition: all 0.25s;
-  -o-transition: all 0.25s;
-  transition: all 0.25s; }
-  .btn:after {
-    content: "\f101";
-    padding-left: 11.16px;
-    font-family: FontAwesome; }
-  .btn:hover {
-    color: #fff;
-    background-color: #EAAB00; }
-  .btn:active {
-    border-color: #4C4C4C;
-    color: #4C4C4C;
-    background-color: transparent; }
-
-.btn.small {
-  position: relative;
-  top: 0;
-  left: 0;
-  margin: 11.16px;
-  border: none;
-  padding: 11.16px;
-  background: #4C4C4C;
-  color: #fff;
-  box-shadow: 0 0 0 0 rgba(165, 165, 165, 0.5);
-  font-size: 18px;
-  letter-spacing: 1.4px; }
-  .btn.small:after {
-    content: none; }
-  .btn.small:hover {
-    top: -2px;
-    left: -1.5px;
-    color: #fff;
-    background-color: #A5A5A5;
-    box-shadow: 4px 3px 2px 0 rgba(165, 165, 165, 0.5); }
-  .btn.small:active {
-    top: 0;
-    left: 0;
-    color: #fff;
-    background-color: #A5A5A5;
-    box-shadow: 0 0 0 0 rgba(165, 165, 165, 0.5); }
-
-img.avatar {
-  border-radius: 50%; }
-
 /*********** scss/global/containers ***********/
 /*------------------------------------*\
     $CONTAINER STYLES
 \*------------------------------------*/
-.container {
-  padding-bottom: 11.16px; }
-
-.border-thin {
-  border: 1px solid #fff; }
-
-.six-nine {
-  position: relative; }
-  .six-nine:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: 56.25%; }
-  .six-nine > .inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; }
-
-.img-back {
-  background-size: cover;
-  background-position: center; }
-
-.img-back::before {
-  background: rgba(255, 255, 255, 0.5); }
-
-section.hero {
-  margin-bottom: 44.64px;
-  min-height: 50vh;
-  background-size: cover;
-  background-position: center; }
-  section.hero h1 {
-    display: inline-block; }
-
-.dim {
-  color: #fff;
-  background: rgba(0, 0, 0, 0.75); }
-  .dim h1, .dim h2, .dim h3, .dim h4, .dim h5, .dim h6, .dim p {
-    color: #fff; }
-    .dim h1 span, .dim h2 span, .dim h3 span, .dim h4 span, .dim h5 span, .dim h6 span, .dim p span {
-      color: #A5A5A5; }
-
-.light-back {
-  background: #A5A5A5;
-  color: #4C4C4C; }
-
-.secondary-back {
-  background: #EAAB00; }
-
-.primary-back {
-  background: #4C4C4C;
-  color: #A5A5A5; }
-
-.blog-post {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
-  margin-bottom: 22.32px;
-  background-size: cover;
-  background-position: center; }
-  .blog-post .dim, .blog-post .excerpt {
-    /* transition mixin */
-    -webkit-transition: all 0.7s;
-    -moz-transition: all 0.7s;
-    -ms-transition: all 0.7s;
-    -o-transition: all 0.7s;
-    transition: all 0.7s; }
-  .blog-post .excerpt {
-    margin: 0;
-    border: 0 solid transparent;
-    padding-top: 0; }
-    .blog-post .excerpt p {
-      /* transition mixin */
-      -webkit-transition: all 0.7s;
-      -moz-transition: all 0.7s;
-      -ms-transition: all 0.7s;
-      -o-transition: all 0.7s;
-      transition: all 0.7s;
-      line-height: 0px;
-      opacity: 0; }
-
-.blog-post::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: transparent;
-  /* transition mixin */
-  -webkit-transition: background 0.7s;
-  -moz-transition: background 0.7s;
-  -ms-transition: background 0.7s;
-  -o-transition: background 0.7s;
-  transition: background 0.7s; }
-
-.blog-post:hover::before {
-  background: rgba(0, 0, 0, 0.75); }
-.blog-post:hover .dim {
-  background: transparent; }
-.blog-post:hover .excerpt {
-  margin: 22.32px 0;
-  border-top: 1px solid #fff;
-  padding-top: 22.32px; }
-  .blog-post:hover .excerpt p {
-    line-height: 22.32px;
-    opacity: 1; }
-
-.lr-container {
-  margin-bottom: 22.32px;
-  display: inline-block; }
-
-@media screen and (min-width: 768px) {
-  .lr-container:nth-child(even) div:first-child {
-    float: right; } }
-.sell-card {
-  margin: 22.32px 0; }
-  .sell-card h5 {
-    margin-bottom: 22.32px; }
-  .sell-card .card-header, .sell-card .card-body {
-    border: 4px solid #4C4C4C;
-    padding: 22.32px;
-    text-align: center; }
-  .sell-card .card-header {
-    border-bottom: none; }
-
-.resource-card {
-  text-align: center;
-  margin-bottom: 22.32px; }
-  .resource-card i.fa {
-    color: #EAAB00;
-    font-size: 72px;
-    margin-bottom: 11.16px; }
-  .resource-card h4 {
-    margin-bottom: 11.16px; }
-
 /************** scss/global/forms **************/
 /*------------------------------------*\
     $FORM STYLES
@@ -316,146 +30,10 @@ section.hero {
 /*------------------------------------*\
     $FOOTER STYLES
 \*------------------------------------*/
-footer {
-  color: #A5A5A5;
-  background: #4C4C4C; }
-  footer .nav > li {
-    float: left; }
-  footer .address-line {
-    padding: 0 11.16px; }
-
-img.logo-footer {
-  padding: 11.16px 0; }
-
 /************** scss/global/header **************/
 /*------------------------------------*\
     $HEADER
 \*------------------------------------*/
-body.home {
-  margin-top: 82px; }
-
-header#masthead {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10; }
-
-.navbar {
-  margin-bottom: 0;
-  background: #4C4C4C;
-  border: none;
-  border-radius: 0;
-  opacity: 0.75;
-  /* transition mixin */
-  -webkit-transition: opacity 0.4s;
-  -moz-transition: opacity 0.4s;
-  -ms-transition: opacity 0.4s;
-  -o-transition: opacity 0.4s;
-  transition: opacity 0.4s; }
-
-.navbar:hover {
-  opacity: 1; }
-
-.navbar-brand {
-  float: left;
-  padding: 5px;
-  padding-left: 26.16px; }
-
-.logo {
-  height: 100%; }
-
-.md-menu-container {
-  float: right;
-  padding-right: 0;
-  background: #4C4C4C; }
-
-.menu-button {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  float: right;
-  color: #fff;
-  background: #4C4C4C;
-  font-size: 22.5px;
-  cursor: pointer;
-  /* transition mixin */
-  -webkit-transition: background 0.4s;
-  -moz-transition: background 0.4s;
-  -ms-transition: background 0.4s;
-  -o-transition: background 0.4s;
-  transition: background 0.4s; }
-
-.open.menu-button {
-  color: #fff;
-  background: #EAAB00; }
-
-.nav .open > a, .nav .open > a:focus, .nav .open > a:hover, .nav > li > a:hover, .menu-button:hover, .menu-button:focus {
-  color: #EAAB00;
-  background: #000; }
-
-.nav > li > a:focus {
-  background: none; }
-
-.navbar-nav > li > .dropdown-menu {
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: #4C4C4C; }
-
-.dropdown-menu > li > a {
-  padding: 11.16px;
-  color: #fff;
-  /* transition mixin */
-  -webkit-transition: background 0.4s;
-  -moz-transition: background 0.4s;
-  -ms-transition: background 0.4s;
-  -o-transition: background 0.4s;
-  transition: background 0.4s; }
-
-.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
-  color: #EAAB00;
-  background: #000; }
-
-.menu-button i.fa {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* transform mixin */
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); }
-
-#sub-menu {
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: -1;
-  display: none;
-  /* transform mixin */
-  -webkit-transform: translateY(100%);
-  -moz-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  -o-transform: translateY(100%);
-  transform: translateY(100%);
-  background: #EAAB00;
-  color: #4C4C4C; }
-  #sub-menu .dropdown-menu {
-    background: #EAAB00; }
-
-.navbar-toggle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  border: none; }
-
-#menu-primary-menu li:last-of-type a {
-  color: #EAAB00; }
-
 /************** scss/global/helpers **************/
 /*------------------------------------*\
     $HELPER CLASSES
@@ -466,14 +44,17 @@ header#masthead {
 .no-margin {
   margin: 0 !important; }
 
-.padding {
-  padding: 11.16px; }
-
 .margin-top {
   margin-top: 22.32px; }
 
 .margin-bottom {
   margin-bottom: 22.32px; }
+
+.padding-top {
+  padding-top: 22.32px; }
+
+.padding-bottom {
+  padding-bottom: 22.32px; }
 
 .text-right {
   text-align: right !important; }
@@ -487,28 +68,8 @@ header#masthead {
 .absolute {
   position: absolute !important; }
 
-.bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0; }
-
 .fright {
   float: right; }
-
-.sit-above {
-  position: absolute;
-  /* transform mixin */
-  -webkit-transform: translateY(-100%);
-  -moz-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -o-transform: translateY(-100%);
-  transform: translateY(-100%); }
-
-.gen-spacing {
-  display: block;
-  padding: 11.16px;
-  margin: 22.32px 0; }
 
 .vert-center {
   position: absolute;
@@ -551,120 +112,16 @@ header#masthead {
 /*------------------------------------*\
     $ELEMENT BASES
 \*------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  color: #4C4C4C;
-  font-family: Trade_Gothic_20;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-transform: uppercase; }
-  h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
-    color: #fff; }
-
-p {
-  margin-bottom: 11.16px;
-  color: #4C4C4C;
-  font-size: 18px;
-  line-height: 22.32px; }
-
-a {
-  color: #EAAB00; }
-
-h1 {
-  font-size: 54px; }
-
-h2 {
-  color: #A5A5A5;
-  font-size: 36px; }
-
-h3 {
-  font-family: Trade_Gothic;
-  font-weight: normal;
-  font-size: 24px; }
-
-h4 {
-  font-size: 22px; }
-
-h5 {
-  font-family: Trade_Gothic_20;
-  font-size: 20px;
-  font-weight: bold;
-  color: #EAAB00; }
-
-p {
-  font-family: Trade_Gothic;
-  font-size: 18px;
-  line-height: 22.32px; }
-
-hr {
-  border-top: 1pt solid #4C4C4C;
-  width: 80%; }
-
+/************* scss/global/sidebar *************/
+/*------------------------------------*\
+    $SIDEBAR
+\*------------------------------------*/
 /************** scss/global/text **************/
 /*------------------------------------*\
     $TEXT STYLES
 \*------------------------------------*/
-.nav-links {
-  font-family: Trade_Gothic_20;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: condensed;
-  text-transform: uppercase;
-  letter-spacing: 0.6px; }
-
-.nav-links a {
-  color: #fff;
-  /* transition mixin */
-  -webkit-transition: background 0.4s;
-  -moz-transition: background 0.4s;
-  -ms-transition: background 0.4s;
-  -o-transition: background 0.4s;
-  transition: background 0.4s; }
-
-.address-line p {
-  margin-bottom: 0;
-  color: #A5A5A5;
-  font-family: Trade_Gothic_18;
-  font-size: 14px;
-  font-style: italic;
-  letter-spacing: 0.6px; }
-
-.intro {
-  font-family: Trade_Gothic;
-  font-size: 28px;
-  line-height: 1.2;
-  color: #4C4C4C; }
-
 /*************************************************/
 /****************** Junk-Drawer ******************/
 /*************************************************/
-/************** scss/junk-drawer/home **************/
-/*------------------------------------*\
-    $HOMEPAGE STYLES
-\*------------------------------------*/
-.container-fluid {
-  padding-right: 5px;
-  padding-left: 5px; }
-  .container-fluid .row {
-    margin-right: -5px;
-    margin-left: -5px; }
-    .container-fluid .row .col-lg-1, .container-fluid .row .col-lg-10, .container-fluid .row .col-lg-11, .container-fluid .row .col-lg-12, .container-fluid .row .col-lg-2, .container-fluid .row .col-lg-3, .container-fluid .row .col-lg-4, .container-fluid .row .col-lg-5, .container-fluid .row .col-lg-6, .container-fluid .row .col-lg-7, .container-fluid .row .col-lg-8, .container-fluid .row .col-lg-9, .container-fluid .row .col-md-1, .container-fluid .row .col-md-10, .container-fluid .row .col-md-11, .container-fluid .row .col-md-12, .container-fluid .row .col-md-2, .container-fluid .row .col-md-3, .container-fluid .row .col-md-4, .container-fluid .row .col-md-5, .container-fluid .row .col-md-6, .container-fluid .row .col-md-7, .container-fluid .row .col-md-8, .container-fluid .row .col-md-9, .container-fluid .row .col-sm-1, .container-fluid .row .col-sm-10, .container-fluid .row .col-sm-11, .container-fluid .row .col-sm-12, .container-fluid .row .col-sm-2, .container-fluid .row .col-sm-3, .container-fluid .row .col-sm-4, .container-fluid .row .col-sm-5, .container-fluid .row .col-sm-6, .container-fluid .row .col-sm-7, .container-fluid .row .col-sm-8, .container-fluid .row .col-sm-9, .container-fluid .row .col-xs-1, .container-fluid .row .col-xs-10, .container-fluid .row .col-xs-11, .container-fluid .row .col-xs-12, .container-fluid .row .col-xs-2, .container-fluid .row .col-xs-3, .container-fluid .row .col-xs-4, .container-fluid .row .col-xs-5, .container-fluid .row .col-xs-6, .container-fluid .row .col-xs-7, .container-fluid .row .col-xs-8, .container-fluid .row .col-xs-9 {
-      padding-left: 5px;
-      padding-right: 5px; }
-    .container-fluid .row .half-height:first-child, .container-fluid .row #home-right, .container-fluid .row #home-left {
-      margin-bottom: 10px; }
-    .container-fluid .row #home-left > div:first-child {
-      margin-bottom: 10px; }
-    .container-fluid .row .half-height {
-      min-height: 160px; }
-
-body.home {
-  margin-top: 62px; }
-
-section.home {
-  margin-bottom: 10px; }
-
-.primary-back h1 {
-  color: #A5A5A5; }
 
 /*# sourceMappingURL=main.css.map */

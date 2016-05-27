@@ -99,6 +99,9 @@ function _tk_scripts() {
 	wp_enqueue_style( '_tk-font-awesome', get_template_directory_uri() . '/includes/css/font-awesome.min.css', false, '4.1.0' );
 
 	// load _tk styles
+	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/css/main.css' );
+
+	// load _tk styles
 	wp_enqueue_style( '_tk-style', get_stylesheet_uri() );
 
 	// load bootstrap js
@@ -106,6 +109,9 @@ function _tk_scripts() {
 
 	// load bootstrap wp js
 	wp_enqueue_script( '_tk-bootstrapwp', get_template_directory_uri() . '/includes/js/bootstrap-wp.js', array('jquery') );
+
+	// load custom js
+	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/js/main.js', array('jquery') );
 
 	wp_enqueue_script( '_tk-skip-link-focus-fix', get_template_directory_uri() . '/includes/js/skip-link-focus-fix.js', array(), '20130115', true );
 
