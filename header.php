@@ -5,7 +5,17 @@
  * Displays all of the <head> section and everything up till <div id="main">
  *
  * @package _tk
+ *
+ * Full screen image homepage with no deliniating backgrounds (static image or very slow fade slider)
+ * Attach distinct images to pages and navigation to associate the image more so than the word
+ * http://www.fanatic.com/windsurfing/ (instagram section and layout ques, but too noisy)
+ * http://joandso.com/ (steal their menu)
+ * Full screen pull out drawer for nav
+ * Blog and pages will all have to have a featured image to display on other pages
+ * Only show featured image, then on hover show excerpt title and link
+ * http://demoblvd.com/themes/gnar/demo-1/
  */
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
