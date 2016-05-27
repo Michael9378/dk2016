@@ -1,0 +1,74 @@
+/*------------------------------------*\
+    $HELPER CLASSES
+\*------------------------------------*/
+
+.no-pad {
+	padding: 0!important;
+}
+
+.no-margin {
+	margin: 0!important;
+}
+
+.padding {
+	padding: $pad;
+}
+
+.margin-top {
+	margin-top: $margin*2;
+}
+
+.margin-bottom {
+	margin-bottom: $margin*2;
+}
+
+.text-right {
+	text-align: right!important;
+}
+
+.text-center {
+	text-align: center!important;
+}
+
+.relative {
+	position: relative!important;
+}
+
+.absolute {
+	position: absolute!important;
+}
+
+.bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fright {
+	float: right;
+}
+
+.sit-above {
+	position: absolute;
+	@include transform(translateY(-100%))
+}
+
+.gen-spacing {
+  display: block;
+  padding: $pad;
+  margin: $margin*2 0;
+}
+
+.vert-center {
+	position: absolute;
+	top: 50%;
+	@include transform(translateY(-50%))
+}
+
+@include bootstrapify(flex, (
+	("display", -webkit-box),
+  ("display", -webkit-flex),
+  ("display", -ms-flexbox),
+  ("display",         flex))
+)

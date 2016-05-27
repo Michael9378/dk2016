@@ -1,0 +1,19 @@
+/*------------------------------------*\
+    $FOOTER STYLES
+\*------------------------------------*/
+
+footer {
+	color: $primary-light;
+	background: $primary-color;
+
+	.nav>li {
+		float: left;
+	}
+	.address-line {
+		padding: 0 $pad;
+	}
+}
+
+img.logo-footer {
+	padding: $pad 0;
+}
