@@ -1,3 +1,92 @@
 /*------------------------------------*\
     $CONTAINER STYLES
 \*------------------------------------*/
+
+section.pad {
+    padding: 10*$pad 0;
+}
+
+.quote {
+    text-align: center;
+}
+
+.dim {
+    color: $white;
+    background: $dim;
+}
+
+.light-back {
+    color: $black;
+    background: $primary-light;
+}
+
+.primary-back {
+    color: $white;
+    background: $primary-color;
+}
+
+.dark-back {
+    color: $white;
+    background: $primary-dark;
+}
+
+.black-back {
+    color: $white;
+    background: $black;
+}
+
+.parallax-back {
+    position: relative;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero .container {
+	min-height: 100vh;
+	color: $white;
+}
+
+.insta-card {
+    height: 250px;
+
+    .content {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: $pad;
+        color: $white;
+        background-color: $primary-dark;
+        opacity: 0.9;
+        @include transition(all, $slow);
+        .desc {
+            max-height: 3*$line-height;
+            margin-bottom: 2*$pad;
+            overflow: hidden;
+        }
+        .fa-instagram {
+            color: $white;
+            font-size: 60px;
+            text-align: center;
+            @include transition(all, $slow);
+            @include transform(rotate(0deg));
+        }
+    }
+    &:hover .content {
+        top: 0%;
+        .fa-instagram {
+            @include transform(rotate(360deg));
+        }
+    }
+}
+
+.rider_post  {
+    .feat_image {
+        border-radius: $border-radius;
+        background-size: cover;
+        background-position: center;
+    }
+}

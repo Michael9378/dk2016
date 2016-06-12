@@ -3,37 +3,33 @@
 \*------------------------------------*/
 
 // Colors
-$white 			: #fff;
-$black 			: #000;
-$dim 			: rgba(0,0,0,0.75);
-$dim-half		: rgba(0,0,0,0.5);
-$lit 			: rgba(255,255,255,0.5);
+$white 			: #E3EBFF;
+$black 			: #0A0D14;
+$dim 			: rgba(10,13,20,0.5);
+$lit 			: rgba(227,235,255,0.5);
 $clear			: rgba(0,0,0,0);
-$success		: #85bb65;
-$warning		: #eaab00;
-$error			: #cd4354;
+$success		: #3EF74D;
+$warning		: #F7EB3E;
+$error			: #AA2E11;
 
-$primary-color 		: #4C4C4C;
-$primary-dark 		: $black;
-$primary-light 		: #A5A5A5;
+$primary-light 	: #9AACDB;
+$primary-color 	: #5578D4;
+$primary-dark 	: #223054;
 
-$secondary-color	: #EAAB00;
-
-$header-back-color	: $primary-color;
-
+$secondary-color: #47EDB3;
 
 // Typography
 $font-size		: 18px;
-$font-aspect	: 1.24;
-$line-height	: $font-size*$font-aspect;
-$font-color		: $primary-color;
+$font-aspect	: 4/3;
+$line-height	: 24px;
+
+$body-font		: 'Adelle Sans';
+$header-font	: 'Fira Sans';
 
 // Spacing
-$margin 		: $line-height/2;
 $pad 			: $line-height/2;
-$border-width	: 2px;
-$gutter			: 15px;
-$gutter-thin	: 5px;
+$gutter			: $pad;
+$border-radius: 5px;
 
 // Boostrap break points
 // note, xs is default and thus not defined

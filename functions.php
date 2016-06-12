@@ -62,7 +62,8 @@ function _tk_setup() {
 	 * This theme uses wp_nav_menu() in one location.
 	*/
 	register_nav_menus( array(
-		'primary'  => __( 'Header bottom menu', '_tk' ),
+		'primary'  => __( 'Primary', '_tk' ),
+		'secondary'  => __( 'Secondary', '_tk' ),
 		) );
 
 }
@@ -110,6 +111,9 @@ function _tk_scripts() {
 	// load bootstrap wp js
 	wp_enqueue_script( '_tk-bootstrapwp', get_template_directory_uri() . '/includes/js/bootstrap-wp.js', array('jquery') );
 
+	// load isntafeed js
+	wp_enqueue_script( 'instafeed-js', get_template_directory_uri() . '/js/instafeed.js' );
+
 	// load custom js
 	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/js/main.js', array('jquery') );
 
@@ -125,6 +129,11 @@ function _tk_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', '_tk_scripts' );
+
+/**
+ * Load custom post types.
+ */
+require get_template_directory() . '/includes/custom_post_types.php';
 
 /**
  * Implement the Custom Header feature.
