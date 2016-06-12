@@ -1,3 +1,44 @@
 /*------------------------------------*\
     $BUTTONS AND ICONS
 \*------------------------------------*/
+
+.btn, .button {
+	margin: $pad 0;
+	border: 2px solid $primary-light;
+	border-radius: $border-radius;
+	padding: $pad, $pad/2;
+	color: $primary-dark;
+	background-color: $secondary-color;
+	font-weight: bold;
+	@include transition(all, $normal-speed);
+
+	&:hover {
+		color: $secondary-color;
+		background-color: $primary-dark;
+		border-color: $secondary-color;
+	}
+
+	&:active {
+		color: $primary-dark;
+		background-color: $secondary-color;
+		border-color: $primary-light;
+	}
+
+	// invert colors for invert class
+	&.invert {
+        color: $secondary-color;
+        background-color: $primary-dark;
+        border-color: $secondary-color;
+        &:hover {
+            color: $primary-dark;
+            background-color: $secondary-color;
+            border-color: $primary-light;
+        }
+
+        &:active {
+            color: $secondary-color;
+            background-color: $primary-dark;
+            border-color: $secondary-color;
+        }
+    }
+}

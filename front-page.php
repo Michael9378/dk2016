@@ -53,16 +53,6 @@ get_header(); ?>
 	</div>
 </section>
 
-
-	
-
-	<section class="events">
-		<div class="container">
-			<div class="row">
-			</div>
-		</div>
-	</section>
-
 <?php if( !isset( $riders ) ) {
 	$args = array( 
 		'post_type'				=> 'rider',
@@ -75,18 +65,28 @@ get_header(); ?>
 }
 ?>
 <?php if( $riders->have_posts() ): ?>
-<section class="authors">
-	<div class="container">
+<section class="riders">
+	<div class="container-fluid">
 		<div class="row">
 
 			<?php while($riders->have_posts() ) : $riders->the_post(); ?>
-			<div class="rider_post col-sm-6">
-				<div class="feat_image col-xs-4" style="background-image:url(<?php the_post_thumbnail_url(); ?>);">
+			<div class="rider_post parallax-back image-overlay col-lg-3 col-sm-4 col-xs-6" style="background-image:url(<?php the_post_thumbnail_url(); ?>);" data-parax="10" data-offset="0" data-invert="1">
+				<div class="rider-info">
+					<h3><?php the_title(); ?></h3>
+					<div class="badges">
+						<?php 
+							if( get_field('instagram_id') ) { echo '<i class="fa fa-instagram"></i>'; }
+							if( get_field('youtube') ) { echo '<i class="fa fa-youtube"></i>'; }
+							if( get_field('facebook') ) { echo '<i class="fa fa-facebook"></i>'; }
+							if( get_field('snapchat') ) { echo '<i class="fa fa-snapchat-ghost"></i>'; }
+							if( get_field('vine') ) { echo '<i class="fa fa-vine"></i>'; }
+							if( get_field('twitter') ) { echo '<i class="fa fa-twitter"></i>'; }
+						?>
+					</div>
 				</div>
-				<div class="bio col-xs-8">
-					<h4><?php the_title(); ?></h4>
-					<p><?php echo ( substr( get_the_excerpt(), 0, 150 ) ); ?>...</p>
-					<a class="btn" href="<?php the_permalink(); ?>">Full Profile</a>
+				<div class="rider-bio">
+					<p><?php echo ( substr( get_the_excerpt(), 0, 250 ) ); ?>...</p>
+					<a class="btn invert" href="<?php the_permalink(); ?>">Full Profile</a>
 				</div>
 			</div>
 			<?php endwhile; ?>

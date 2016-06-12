@@ -8,3 +8,11 @@ body {
 	font-size: $font-size;
 	line-height: $line-height;
 }
+
+a {
+	color: $primary-color;
+	@include transition(color, $normal-speed);
+	&:hover {
+		color: $secondary-color;
+	}
+}

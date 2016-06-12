@@ -59,10 +59,49 @@
 /*------------------------------------*\
     $BUTTONS AND ICONS
 \*------------------------------------*/
+.btn, .button {
+  margin: 12px 0;
+  border: 2px solid #9AACDB;
+  border-radius: 3px;
+  padding: 12px, 6px;
+  color: #223054;
+  background-color: #47EDB3;
+  font-weight: bold;
+  /* transition mixin */
+  -webkit-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s; }
+  .btn:hover, .button:hover {
+    color: #47EDB3;
+    background-color: #223054;
+    border-color: #47EDB3; }
+  .btn:active, .button:active {
+    color: #223054;
+    background-color: #47EDB3;
+    border-color: #9AACDB; }
+  .btn.invert, .button.invert {
+    color: #47EDB3;
+    background-color: #223054;
+    border-color: #47EDB3; }
+    .btn.invert:hover, .button.invert:hover {
+      color: #223054;
+      background-color: #47EDB3;
+      border-color: #9AACDB; }
+    .btn.invert:active, .button.invert:active {
+      color: #47EDB3;
+      background-color: #223054;
+      border-color: #47EDB3; }
+
 /*********** scss/global/containers ***********/
 /*------------------------------------*\
     $CONTAINER STYLES
 \*------------------------------------*/
+/* wp-admin bar adjustments */
+.admin-bar header.site-header, .admin-bar .nav-drawer, .admin-bar #open-nav {
+  top: 32px; }
+
 section.pad {
   padding: 120px 0; }
 
@@ -123,7 +162,7 @@ section.pad {
       margin-bottom: 24px;
       overflow: hidden; }
     .insta-card .content .fa-instagram {
-      color: #E3EBFF;
+      color: #47EDB3;
       font-size: 60px;
       text-align: center;
       /* transition mixin */
@@ -148,10 +187,71 @@ section.pad {
       -o-transform: rotate(360deg);
       transform: rotate(360deg); }
 
-.rider_post .feat_image {
-  border-radius: 5px;
+.rider_post {
+  height: 250px;
+  color: #E3EBFF;
   background-size: cover;
   background-position: center; }
+  .rider_post .rider-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 12px;
+    text-align: center; }
+    .rider_post .rider-info .badges i {
+      padding: 0 6px;
+      font-size: 27px; }
+  .rider_post .rider-bio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    background: #223054;
+    opacity: 0.9;
+    /* transform mixin */
+    -webkit-transform: translate(120%, -120%);
+    -moz-transform: translate(120%, -120%);
+    -ms-transform: translate(120%, -120%);
+    -o-transform: translate(120%, -120%);
+    transform: translate(120%, -120%);
+    /* transition mixin */
+    -webkit-transition: all 0.4s ease-in;
+    -moz-transition: all 0.4s ease-in;
+    -ms-transition: all 0.4s ease-in;
+    -o-transition: all 0.4s ease-in;
+    transition: all 0.4s ease-in; }
+    .rider_post .rider-bio:before {
+      content: ' ';
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: 450px;
+      height: 450px;
+      border-bottom: 12px solid #9AACDB;
+      background: #223054;
+      /* transform mixin */
+      -webkit-transform: translate(-50%, -50%) rotate(45deg);
+      -moz-transform: translate(-50%, -50%) rotate(45deg);
+      -ms-transform: translate(-50%, -50%) rotate(45deg);
+      -o-transform: translate(-50%, -50%) rotate(45deg);
+      transform: translate(-50%, -50%) rotate(45deg); }
+  .rider_post:hover .rider-bio {
+    /* transform mixin */
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    /* transition mixin */
+    -webkit-transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -ms-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out; }
 
 /************** scss/global/forms **************/
 /*------------------------------------*\
@@ -184,11 +284,13 @@ img.logo {
     float: none;
     padding: 12px 18px;
     color: #9AACDB;
+    text-shadow: 1px 1px 0px #223054, 1px -1px 0px #223054, -1px 1px 0px #223054, -1px -1px 0px #223054;
     font-size: 28px; }
+    #open-nav a:hover, #close-nav a:hover {
+      color: #47EDB3; }
 
 #close-nav {
-  position: absolute;
-  right: 24px; }
+  position: absolute; }
 
 .nav-drawer {
   position: fixed;
@@ -353,6 +455,17 @@ body {
   background: #E3EBFF;
   font-size: 18px;
   line-height: 24px; }
+
+a {
+  color: #5578D4;
+  /* transition mixin */
+  -webkit-transition: color 0.4s;
+  -moz-transition: color 0.4s;
+  -ms-transition: color 0.4s;
+  -o-transition: color 0.4s;
+  transition: color 0.4s; }
+  a:hover {
+    color: #47EDB3; }
 
 /************* scss/global/sidebar *************/
 /*------------------------------------*\

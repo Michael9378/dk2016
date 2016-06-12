@@ -19,17 +19,19 @@
 		navFunctionality();
 		instafeedShit();
 
-		setTimeout(function(){matchHeight(".rider_post>div");}, 100);
-		$(window).resize(function(){matchHeight(".rider_post>div");});
+		// setTimeout(function(){matchHeight(".rider_post>div");}, 100);
+		// $(window).resize(function(){matchHeight(".rider_post>div");});
 	});
 
 	// custom functions start here
 
 	function navFunctionality() {
-		$("#open-nav").click(function(){
+		$("#open-nav").click(function(e){
+			e.preventDefault();
 			$(".nav-drawer").addClass("open");
 		});
-		$("#close-nav").click(function(){
+		$("#close-nav").click(function(e){
+			e.preventDefault();
 			$(".nav-drawer").removeClass("open");
 		});
 	}

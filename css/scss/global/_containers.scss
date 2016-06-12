@@ -2,6 +2,14 @@
     $CONTAINER STYLES
 \*------------------------------------*/
 
+/* wp-admin bar adjustments */
+
+.admin-bar {
+    header.site-header, .nav-drawer, #open-nav {
+        top: 32px;
+    }
+}
+
 section.pad {
     padding: 10*$pad 0;
 }
@@ -68,7 +76,7 @@ section.pad {
             overflow: hidden;
         }
         .fa-instagram {
-            color: $white;
+            color: $secondary-color;
             font-size: 60px;
             text-align: center;
             @include transition(all, $slow);
@@ -84,9 +92,53 @@ section.pad {
 }
 
 .rider_post  {
-    .feat_image {
-        border-radius: $border-radius;
-        background-size: cover;
-        background-position: center;
+    height: 250px;
+    color: $white;
+    background-size: cover;
+    background-position: center;
+
+    .rider-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding-bottom: $pad;
+        text-align: center;
+        .badges i {
+            padding: 0 $pad/2;
+            font-size: 1.5*$font-size;
+        }
     }
+
+    .rider-bio {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: $pad;
+        background: $primary-dark;
+        opacity: 0.9;
+        @include transform( translate(120%, -120%) );
+        @include transition(all, $normal-speed, ease-in);
+
+        &:before {
+            content: ' ';
+            position: absolute;
+            z-index: -1;
+            top: 50%;
+            left: 50%;
+            width: 450px;
+            height: 450px;
+            border-bottom: $pad solid $primary-light;
+            background: $primary-dark;
+            @include transform( translate(-50%, -50%) rotate(45deg) );
+        }
+    }
+
+    &:hover .rider-bio {
+        @include transform( translate(0, 0) );
+        @include transition(all, $slow, ease-out);        
+    }
+
 }

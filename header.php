@@ -35,7 +35,7 @@
 	<?php do_action( 'before' ); ?>
 
 <header class="site-header" role="banner">
-	<a href="/"><img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/icons/newlogo.png"></a>
+	<a href="<?php get_site_url (); ?>"><img class="logo" src="<?php echo get_template_directory_uri(); ?>/images/icons/newlogo.png"></a>
 </header><!-- #masthead -->
 
 <nav class="site-navigation">
