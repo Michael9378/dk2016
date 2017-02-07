@@ -99,7 +99,10 @@ function _tk_scripts() {
 	// load Font Awesome css
 	wp_enqueue_style( '_tk-font-awesome', get_template_directory_uri() . '/includes/css/font-awesome.min.css', false, '4.1.0' );
 
-	// load _tk styles
+	// load custom styles
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,300italic,400italic,600italic|Raleway:300,300italic' );
+
+	// load custom styles
 	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/css/main.css' );
 
 	// load _tk styles

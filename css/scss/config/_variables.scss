@@ -3,7 +3,7 @@
 \*------------------------------------*/
 
 // Colors
-$white 			: #E3EBFF;
+$white 			: #EAF2FF;
 $black 			: #0A0D14;
 $dim 			: rgba(10,13,20,0.5);
 $lit 			: rgba(227,235,255,0.5);
@@ -17,14 +17,15 @@ $primary-color 	: #5578D4;
 $primary-dark 	: #223054;
 
 $secondary-color: #47EDB3;
+$border-color	: $secondary-color;
 
 // Typography
 $font-size		: 18px;
 $font-aspect	: 4/3;
 $line-height	: 24px;
 
-$body-font		: 'Adelle Sans';
-$header-font	: 'Fira Sans';
+$body-font		: 'Source Sans Pro', sans-serif; // 'Adelle Sans';
+$header-font	: 'Raleway', sans-serif;// 'Fira Sans';
 
 // Spacing
 $pad 			: $line-height/2;

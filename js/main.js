@@ -17,7 +17,6 @@
 		}
 		$(window).resize(function(){instaSize();});
 		navFunctionality();
-		instafeedShit();
 
 		// setTimeout(function(){matchHeight(".rider_post>div");}, 100);
 		// $(window).resize(function(){matchHeight(".rider_post>div");});
@@ -76,46 +75,6 @@
 		
 	}
 
-	function instafeedShit() {
-	    var userFeed = new Instafeed({
-	        get: 'user',
-	        userId: 1660834993,
-	        accessToken: '1660834993.22a1aca.70bdc6ed8d6548ed9355b542755f12c4',
-	        resolution: 'standard_resolution',
-	        template: '<div class="parallax-back insta-card col-md-3 col-sm-4" data-parax="13" data-offset="0" data-invert="0" style="background-image: url({{image}});"><div class="content"><p><strong>{{model.user.full_name}}</strong></p><p class="desc">{{model.caption.text}}</p><p class="text-center"><a href="{{model.link}}" target="_blank"><i class="fa fa-instagram"></i></a></p></div></div>',
-	        limit: 12,
-	        target: 'dk-insta',
-	    	clientId: '22a1aca9dc5543fba6d94bc5985c63fd',
-	    });
-	    userFeed.run();
-	    checkInstaFeed();
-	}
-
-	function checkInstaFeed() {
-		if( $(".insta-card").toArray().length > 10 ) {
-			setTimeout(afterFeedLoad, 250);
-		}
-		else {
-			setTimeout(checkInstaFeed, 250);
-		}
-	}
-
-	// fired after instagram images are loaded
-	function afterFeedLoad() {
-		instaSize();
-	}
-
-	function instaSize() {
-		// check if touch or not. No touch, no parax, show all of instagram
-		if( isTouch ) {
-			$(".insta-card").height( $(".insta-card:first-child").width() );
-		}
-		else {
-			// grab first child's width, multiply by .75 and make this the height of all matching elements
-			$(".insta-card").height($(".insta-card:first-child").width()*0.75);			
-		}
-	}
-
 	// match height takes in a jquery selector, grabs all the elements, and matches their heights
 function matchHeight(sel) {
 		// make sure there are elements that match the selector
@@ -144,6 +103,267 @@ function matchHeight(sel) {
 
 	  }// end if sel.length
 }
+
+
+
+/* Location Finder stuff, prepare yourself
+	*/
+	function locationFinder() {
+		// create map
+		map = initMap(33.539, -112.119);
+		// create array of markers based on locations in left pane
+		markersArray = createMarkers();
+		// enable the listener for the left pane
+		locationBoxListener();
+
+		// if we are redirected from homepage, we need to do a search on load
+		// wait for window to load, then parse url for zip and sort locations
+		$(document).ready(function () {
+			// check to see if we were passed a variable in the url
+			var parameters = window.location.search.substring(1);
+			if(parameters.length > 0) {
+				// we have a passed parameter, parse the zip out, fill in the input for the zip, and submit the form
+				var zip = parameters.substring(parameters.indexOf("=")+1);
+				// set the input to the passed zip
+				$("#searchInputs input").val(zip);
+				// trigger a form submit
+				$('#searchInputs').trigger('submit');
+			}
+		});
+
+		// add drop down trigger to submit form
+		$('#searchInputs select').change(function(){
+			// check to be sure a zip code is added
+			if($("#searchInputs input").val().length == 5)
+				$('#searchInputs').trigger('submit');
+		});
+
+		// trigger to call onSearchSubmit
+		$("#searchInputs").submit(function(e){
+			e.preventDefault();
+			hideDistance = false;
+			onSearchSubmit();
+		});
+
+		// add listeners to show all and filter buttons
+		$('#filterButton').click(function(){
+			$('#searchInputs').trigger('submit');
+		});
+		$('#showAll').click(function(){
+			// pass zip code for 85029 because thats basically the center of Phoenix
+			// and distance of 1000 miles
+			// then hide distances
+			hideDistance = true;
+			filterLocations(85029, 1000);
+		});
+
+	}
+	// used on homepage when the search form is entered
+	function zipSearchifier(){
+		$(".home .search-form").submit(function(e){
+			// prevent default
+			e.preventDefault();
+			// grab the entered zip and change page
+			var newUrl = "/location-finder/?zip=" + $(".home .search-form input").val();
+			document.location.href = newUrl;
+		});
+	}
+
+	// creates a new map with lat and long as center
+  function initMap(tLat, tLng) {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: tLat, lng: tLng},
+      zoom: 10
+    }); 
+    return map;
+  }
+
+	function createMarkers() {
+
+		// markers will hold all markers needed.
+		var markers = new Array();
+		// grab all locations
+		var elements = $(".locations-box").find(".location");
+
+		for(var i = 0; i < elements.length; i++) {
+    	// get the address of the location
+    	var latLong = $(elements[i]).find(".location-latLong").html();
+    	// convert the address into a lat and long object for google maps
+    	var tempPosition = formatLatLong(latLong);
+    	// set title to location name
+    	var tempTitle = $(elements[i]).find(".location-name").html();
+
+			// create a marker
+	    var marker = new google.maps.Marker({
+		    position: tempPosition,
+		    map: map,
+		    title: tempTitle,
+		    id: i
+		  });
+
+		  // add listener to marker
+			marker.addListener('click', function() {
+			  // On click of marker, highlight set clicked location to active and scroll to
+			  $(".location.active").removeClass("active");
+			  $("#location-"+this.id).addClass("active");
+			  // stop all pins from bouncing
+			  stopPinAnimations();
+			  // set the clicked pin to bounce
+			  this.setAnimation(google.maps.Animation.BOUNCE);
+			  // scroll to the element on the left pane
+			  scrollToLocation(this.id);
+			});
+			// add marker to array
+		  markers.push(marker)
+		}
+		// return array of markers;
+		return markers;
+	}
+
+	function formatLatLong(address) {
+		// remove the parenthesis
+		var str = address.substring(1, address.length - 2);
+		// split string at the comma
+		var res = str.split(",");
+		var obj = new google.maps.LatLng(Number(res[0]), Number(res[1]));
+		// latitude lives at res[0]
+		// longitude lives at res[1]
+		// convert to numbers and return
+		return obj;
+	}
+
+	function filterLocations(passedZip, passedDistance) {
+		// ajax call to google api to get location from zip
+		$.ajax({
+		  url: "http://maps.googleapis.com/maps/api/geocode/json?address=" + passedZip,
+		  dataType: "json",
+		  data: {
+		      format: 'json'
+		   },
+		  success: function(result){
+		        filterHelper(result.results[0].geometry.location, passedDistance);
+		    }
+		});
+	}
+
+	function filterHelper(tlocation, passedDistance) {
+		// set locations to 0
+		locationsCount = 0;
+		// convert lat long to google maps crap
+		var tposition = new google.maps.LatLng(tlocation.lat, tlocation.lng);
+		// loop through markersArray and set map to null if outside of passed distance from location
+		for(var i = 0; i < markersArray.length; i++) {
+			// #location-i is the id of the corresponding location box
+
+			// get distance between current point and passed point
+			var distance = google.maps.geometry.spherical.computeDistanceBetween(markersArray[i].position, tposition);
+			$("#location-" + i).data("distance", distance);
+			$("#location-" + i).attr("data-distance", Math.round(distance));
+			$("#location-" + i + " .location-distance span").html(Math.round(distance/160.934)/10);
+			$("#location-" + i + " .location-distance").show();
+			// convert passedDistance from miles to meters
+			if(distance > passedDistance*1609.34) {
+				markersArray[i].setMap(null);
+				$("#location-" + i).hide(500);
+			}
+			else {
+				markersArray[i].setMap(map);
+				$("#location-" + i).show(500);
+				locationsCount++;
+			}
+		}
+		$("#locationCount").html(locationsCount);
+		afterLocationsSorted();
+	}
+
+	// fired after locations have been assigned their appropriate distances and filtered
+	function afterLocationsSorted(){
+			sortByDistance();
+			locationBoxListener();
+			if(hideDistance) {
+				$(".location-distance").hide();
+			}
+			// update locations-box because the frame buffer gets stuck otherwise
+			$(".locations-box").css("background-color", "#004C46");
+			setTimeout(function(){$(".locations-box").attr("style", "");},1);
+	}
+	// sorts the left pane by distance
+	function sortByDistance(){
+		// grab all the divs to sort
+		var locations = $(".locations-box").find(".location");
+		// set swapped to true so we enter the loop atleast once
+		var swapped = true;
+		// while we are swapping, continue the loop
+		while(swapped) {
+			// set swapped to false to allow for pop out of loop
+			swapped = false;
+			// loop through the array and bubble sort
+			for(var i = 0; i < locations.length-1; i++) {
+				// bubble sort
+				if($(locations[i]).data("distance") > $(locations[i+1]).data("distance")) {
+					// if left is greater than right, swap
+					var temp = locations[i];
+					locations[i] = locations[i+1];
+					locations[i+1] = temp;
+					// we swapped
+					swapped = true;
+				} // end if
+			} // end for
+		} // end while
+
+		// remove all divs then append them in the correct order
+		for(var i = 0; i < locations.length; i++) {
+			$(locations[i]).remove();
+			$(locations[i]).appendTo( ".locations-box" );
+		} // end for
+	}
+	// whenever the elements from left pane are removed, the listeners must be readded
+	function locationBoxListener() {
+		// on location click, show the marker on the map
+		$(".card-box.location").click(function(){
+			// switch clicked location to active
+			$(".location.active").removeClass("active");
+			$(this).addClass("active");
+			// get the location index and then animate the marker
+			var index = parseInt($(this).attr("id").substring(9));
+			stopPinAnimations();
+			markersArray[index].setAnimation(google.maps.Animation.BOUNCE);
+			// center map on location
+			map.setCenter(markersArray[index].position);
+		});
+	}
+
+	function stopPinAnimations() {
+		for(var i = 0; i < markersArray.length; i++) {
+				markersArray[i].setAnimation(null);
+			}
+	}
+
+	function scrollToLocation(locationID) {
+		// scroll the locations div to the selected location
+		var element = $("#location-" + locationID);
+		// set scroll padding of 15px
+		var scroll = element.position().top - 15;
+		// scroll distance is relative to locations-box scrollTop
+		scroll += $(".locations-box").scrollTop();
+		// scroll the left pane and animate it
+		$(".locations-box").animate({ scrollTop: scroll + "px" });
+	}
+
+	function onSearchSubmit(){
+		// event listener for search
+		// on submit, grab the passed zip and distance
+		var passedAddress = $("#searchInputs input").val();
+		var passedDistance =  Number($("#searchInputs select").val());
+
+		// error handling to make sure zip is valid
+		if($("#searchInputs input").val().length < 5) {
+			alert("Please enter a valid address or zipcode.");
+		}
+		else {
+			filterLocations(passedAddress, passedDistance);
+		}
+	}
 
 
 })(jQuery);

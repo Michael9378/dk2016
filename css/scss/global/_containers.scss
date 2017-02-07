@@ -91,6 +91,23 @@ section.pad {
     }
 }
 
+.events {
+    padding: 0;
+    .image-overlay:before {background: rgba(34, 48, 84, 0.9);} // primary-dark with .9 opacity
+    h2 {
+        margin: 0;
+        padding: 4*$pad 0;
+    }
+    .event_post {
+        border-top: 1px solid $border-color;
+        border-right: 1px solid $border-color;
+        padding: 4*$pad 2*$pad;
+        &:nth-child(even) {
+            border-right: none;
+        }
+    }
+}
+
 .rider_post  {
     height: 250px;
     color: $white;

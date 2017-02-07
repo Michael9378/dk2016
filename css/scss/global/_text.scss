@@ -4,6 +4,8 @@
 
 body, p, ul, ol, li {
 	font-family: $body-font;
+	font-weight: 300;
+	line-height: $font-aspect;
 }
 
 h1, h2, h3, h4, h5, p, ul, ol, li {
@@ -13,11 +15,12 @@ h1, h2, h3, h4, h5, p, ul, ol, li {
 
 h1, h2, h3, h4, h5 {
 	font-family: $header-font;
+	line-height: $font-aspect;
 }
 
 p {
 	font-size: $font-size;
-	line-height: $line-height;
+	line-height: $font-aspect;
 }
 
 h1 {
@@ -33,9 +36,13 @@ h3 {
 }
 
 h4 {
+	font-family: $body-font;
 	font-size: 1.5*$font-size;
+	font-weight: bold;
 }
 
 h5 {
+	font-family: $body-font;
 	font-size: $font-size;
+	font-weight: bold;
 }
